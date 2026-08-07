@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+
+Sitemap: https://mgec83.github.io/mgec83-site/sitemap.xml
