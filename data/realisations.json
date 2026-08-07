@@ -1,6 +1,15 @@
 {
   "chantiers": [
     {
+      "titre": "Escalier intérieur",
+      "avant": "/photos/Escalier av.jpg",
+      "apres": "/photos/Escalier ap.jpg",
+      "texte": "Ponçage à blanc de l'escalier. Aspiration et nettoyage au chiffon humide. Pose de scotch de marquage. Mise en peinture de couleur noir mat sur demande du client.",
+      "cat": "interieur",
+      "lieu": "La Seyne sur Mer",
+      "duree": "5 jours"
+    },
+    {
       "titre": "Salle de Bain",
       "avant": "/photos/Lavabo av.jpg",
       "apres": "/photos/Lavabo ap.jpg",
