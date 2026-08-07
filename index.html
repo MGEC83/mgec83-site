@@ -256,7 +256,10 @@ section{position:relative}
 
 /* Comparateur avant/après : input range natif, donc utilisable au clavier
    et au doigt sans une ligne de gestion d'événement tactile. */
-.compare{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--nuit-2);--p:50%;touch-action:pan-y}
+/* Le cadre épouse les proportions réelles de la photo, portrait comme
+   paysage : un chantier photographié au téléphone à la verticale ne doit
+   pas être amputé. --ar est posé par le script à la lecture de l'image. */
+.compare{position:relative;aspect-ratio:var(--ar,1);overflow:hidden;background:var(--nuit-2);--p:50%;touch-action:pan-y}
 .compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
 .compare .apres{clip-path:inset(0 calc(100% - var(--p)) 0 0)}
 .compare .etiq{position:absolute;bottom:.65rem;padding:.25rem .6rem;border-radius:2px;font-size:.68rem;
@@ -396,7 +399,9 @@ section{position:relative}
   display:none;place-items:center;padding:clamp(1rem,4vw,3rem);overflow-y:auto}
 .vue[open],.vue.ouvert{display:grid}
 .vue-boite{max-width:940px;width:100%;background:var(--nuit-1);border:1px solid var(--trait);border-radius:var(--r-lg);overflow:hidden}
-.vue-boite .compare{aspect-ratio:16/10}
+/* En grand, la photo tient toujours dans la hauteur de l'écran : la largeur
+   se déduit du rapport, jamais l'inverse. */
+.vue-boite .compare{width:min(100%,calc(70vh * var(--ar,1)));aspect-ratio:var(--ar,1);margin-inline:auto}
 .vue-txt{padding:clamp(1.3rem,3vw,2rem)}
 .vue-txt h3{font-size:clamp(1.3rem,2.6vw,1.9rem);margin-bottom:.8rem}
 .vue-txt p{color:var(--texte-2);max-width:64ch;white-space:pre-line}
@@ -913,6 +918,16 @@ section{position:relative}
     const maj = () => boite.style.setProperty("--p", curseur.value + "%");
     curseur.addEventListener("input", maj);
     maj();
+
+    // Proportions reprises de la photo elle-même, bornées entre 9:16 et 16:9
+    // pour qu'un cliché inhabituel ne déforme pas la grille.
+    const apres = $(".apres", boite);
+    const caler = () => {
+      if (!apres.naturalWidth || !apres.naturalHeight) return;
+      const r = Math.min(16 / 9, Math.max(9 / 16, apres.naturalWidth / apres.naturalHeight));
+      boite.style.setProperty("--ar", r.toFixed(4));
+    };
+    apres.complete ? caler() : apres.addEventListener("load", caler, { once: true });
   };
 
   const gabaritCompare = (avant, apres, titre) => `
