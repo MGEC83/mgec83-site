@@ -1,0 +1,99 @@
+# ═══════════════════════════════════════════════════════════════════
+#  CONFIGURATION DE L'ESPACE PHOTOS
+#  Déjà renseignée pour le compte mgec83. Rien à modifier.
+# ═══════════════════════════════════════════════════════════════════
+
+backend:
+  name: github
+  # La casse compte ici : l'API GitHub compare ce nom caractère par
+  # caractère. Le compte s'écrit MGEC83, en majuscules.
+  repo: MGEC83/mgec83-site
+  branch: main
+  commit_messages:
+    create: 'Nouvelle réalisation'
+    update: 'Modification d''une réalisation'
+    delete: 'Suppression d''une réalisation'
+    uploadMedia: 'Ajout de photos'
+    deleteMedia: 'Suppression de photos'
+
+# Où les photos sont déposées, et comment le site y accède
+media_folder: photos
+public_folder: /photos
+
+# Interface en français
+locale: fr
+
+# Bouton « Voir le site »
+site_url: https://mgec83.github.io/mgec83-site/
+
+collections:
+  - name: realisations
+    label: Réalisations
+    icon: photo_camera
+    files:
+      - name: chantiers
+        label: Mes chantiers
+        file: data/realisations.json
+        format: json
+        description: >-
+          Ajoutez ici chaque chantier terminé, avec une photo AVANT, une photo
+          APRÈS et quelques lignes d'explication. Le site se met à jour tout
+          seul environ une minute après avoir cliqué sur « Publier ».
+        fields:
+          - name: chantiers
+            label: Chantiers
+            label_singular: chantier
+            widget: list
+            summary: '{{fields.titre}} - {{fields.lieu}}'
+            collapsed: true
+            add_to_top: true          # les nouveaux chantiers passent en premier
+            fields:
+
+              - name: titre
+                label: 1. Titre du chantier
+                widget: string
+                hint: 'Exemple : Rénovation complète d''un salon'
+
+              - name: avant
+                label: 2. Photo AVANT
+                widget: image
+                media_library:
+                  config:
+                    max_file_size: 15000000
+
+              - name: apres
+                label: 3. Photo APRÈS
+                widget: image
+                media_library:
+                  config:
+                    max_file_size: 15000000
+
+              - name: texte
+                label: 4. Ce que vous avez fait
+                widget: text
+                hint: '2 ou 3 lignes. Exemple : ponçage des murs, deux couches de peinture, pose de nouvelles plinthes.'
+
+              # ⚠ Ces valeurs (interieur, exterieur, piscine, pro, depannage)
+              #   correspondent aux filtres du site. Ne pas les renommer.
+              - name: cat
+                label: 5. Type de travaux
+                widget: select
+                default: interieur
+                options:
+                  - { label: 'Rénovation et intérieur',        value: interieur }
+                  - { label: 'Jardin et extérieur',            value: exterieur }
+                  - { label: 'Piscine',                        value: piscine }
+                  - { label: 'Commerce ou entreprise',         value: pro }
+                  - { label: 'Dépannage et petits travaux',    value: depannage }
+
+              - name: lieu
+                label: 6. Commune
+                widget: string
+                required: false
+                hint: 'Exemple : Hyères (83)'
+
+              - name: duree
+                label: 7. Durée du chantier
+                widget: string
+                required: false
+                hint: 'Exemple : 3 jours'

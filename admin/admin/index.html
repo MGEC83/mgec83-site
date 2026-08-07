@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Espace photos | M.G.E.C 83</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#040914">
+<link rel="icon" href="../photos/logo.jpg">
+<style>
+  /* Habillage aux couleurs de l'entreprise pendant le chargement de l'interface. */
+  body{margin:0;font-family:"Segoe UI",system-ui,sans-serif;background:#040914}
+  #chargement{position:fixed;inset:0;display:grid;place-items:center;text-align:center}
+  #chargement img{width:96px;height:96px;object-fit:cover;margin:0 auto .9rem;
+    -webkit-mask-image:radial-gradient(circle at 50% 47%,#000 60%,transparent 88%);
+            mask-image:radial-gradient(circle at 50% 47%,#000 60%,transparent 88%)}
+  #chargement b{display:block;font-size:1.5rem;letter-spacing:.05em;
+    background:linear-gradient(176deg,#F6E2B0,#C9962F 60%,#8A6417);
+    -webkit-background-clip:text;background-clip:text;color:transparent}
+  #chargement span{display:block;margin-top:.4rem;font-size:.88rem;color:rgba(236,231,220,.58)}
+</style>
+</head>
+<body>
+<div id="chargement">
+  <div>
+    <img src="../photos/logo.jpg" alt="">
+    <b>M.G.E.C 83</b>
+    <span>Ouverture de l'espace photos…</span>
+  </div>
+</div>
+<script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+<script>
+  // Une fois l'interface prête, on retire le message d'attente.
+  setTimeout(() => document.getElementById('chargement')?.remove(), 2500);
+</script>
+</body>
+</html>
