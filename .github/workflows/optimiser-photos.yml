@@ -1,0 +1,40 @@
+name: Optimiser les photos
+
+on:
+  push:
+    paths:
+      - 'photos/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  optimiser:
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Redimensionner et compresser
+        run: |
+          modifie=0
+          while IFS= read -r -d '' f; do
+            avant=$(stat -c%s "$f")
+            mogrify -auto-orient -resize '1600x1600>' -quality 82 -strip "$f"
+            apres=$(stat -c%s "$f")
+            if [ "$apres" -lt "$avant" ]; then
+              echo "  $f : $((avant/1024)) Ko -> $((apres/1024)) Ko"
+              modifie=1
+            fi
+          done < <(find photos -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' \) -print0)
+          echo "modifie=$modifie" >> "$GITHUB_ENV"
+
+      - name: Enregistrer les photos allégées
+        if: env.modifie == '1'
+        run: |
+          git config user.name  "Robot photos"
+          git config user.email "actions@github.com"
+          git add photos
+          git diff --staged --quiet || git commit -m "Photos allégées automatiquement [skip ci]"
+          git push
