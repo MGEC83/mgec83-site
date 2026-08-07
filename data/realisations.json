@@ -1,3 +1,13 @@
 {
-  "chantiers": []
+  "chantiers": [
+    {
+      "titre": "Salle de Bain",
+      "avant": "/photos/Lavabo av.jpg",
+      "apres": "/photos/Lavabo ap.jpg",
+      "texte": "Démontage de l'ancien meuble plus miroir. Montage du nouveau meuble plus grand avec vasque intégré. Montage du meuble miroir avec porte et éclairage LED. Pose de crédence.",
+      "cat": "interieur",
+      "lieu": "La Seyne sur Mer",
+      "duree": "7h"
+    }
+  ]
 }
