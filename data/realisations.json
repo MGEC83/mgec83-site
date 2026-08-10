@@ -1,6 +1,15 @@
 {
   "chantiers": [
     {
+      "titre": "Changement d'une porte de séparation salle de bain chambre sur rail",
+      "avant": "/photos/20250509_082349 (1).jpg",
+      "apres": "/photos/Porte salle de bain (1).jpg",
+      "texte": "Dépose compléte de la porte d'origine avec son chassie puis mise en place de la nouvelle porte sure rail style usine bois et finitions.",
+      "cat": "interieur",
+      "lieu": "La seyne sur Mer",
+      "duree": "5 jours"
+    },
+    {
       "titre": "Escalier intérieur",
       "avant": "/photos/Escalier av.jpg",
       "apres": "/photos/Escalier ap.jpg",
