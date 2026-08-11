@@ -1,6 +1,15 @@
 {
   "chantiers": [
     {
+      "titre": "Montage meuble pour chaussures",
+      "avant": "/photos/montage meuble a chaussure début.heic",
+      "apres": "/photos/montage meuble a chaussure fini.heic",
+      "texte": "J'ai été récupérer le meuble a chaussure car la cliente ne pouvais pas le transporter dans son véhicule, j'ai monter le meuble ou la cliente désirer l'avoir et par sécurité je l'ai fixer au mur.",
+      "cat": "interieur",
+      "lieu": "La Seyne sur Mer 83",
+      "duree": "1 jour"
+    },
+    {
       "titre": "Eclairage led piscine",
       "avant": "/photos/remise en etancheite de spot imergé piscine 1.heic",
       "apres": "/photos/remise en etancheité de spot piscine imergé fin.heic",
