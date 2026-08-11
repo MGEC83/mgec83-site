@@ -1,6 +1,15 @@
 {
   "chantiers": [
     {
+      "titre": "Création lampe bois flotté",
+      "avant": "/photos/lampe bois floté brutte.heic",
+      "apres": "/photos/lampe bois floté fini.heic",
+      "texte": "mise a nu du bois ponçage a blanc grains 40 puis grains 80 brulage du bois pour effet viellie reponçage léger grains 120 installation de la corde du câbles de la douille puis interrupteur et prise socle en pierre percé au centre pour fixation du bois puis 4 couche de vernis et pour l'ampoule choix de la cliente.",
+      "cat": "interieur",
+      "lieu": "La Seyne sur Mer 83",
+      "duree": "3 jours (temps de séchage compris)"
+    },
+    {
       "titre": "Changement d'une porte de séparation salle de bain chambre sur rail",
       "avant": "/photos/20250509_082349 (1).jpg",
       "apres": "/photos/Porte salle de bain (1).jpg",
