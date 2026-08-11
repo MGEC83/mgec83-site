@@ -1,6 +1,15 @@
 {
   "chantiers": [
     {
+      "titre": "Eclairage led piscine",
+      "avant": "/photos/remise en etancheite de spot imergé piscine 1.heic",
+      "apres": "/photos/remise en etancheité de spot piscine imergé fin.heic",
+      "texte": "remise en conformité puis étanchéité de spot led immerger dans bassin piscine Hôtel Hélios ****SPA ile des Embiez .",
+      "cat": "piscine",
+      "lieu": "Six Fours les Plages 83",
+      "duree": "3 jours (temps de séchage inclus saison fermeture)"
+    },
+    {
       "titre": "Création lampe bois flotté",
       "avant": "/photos/lampe bois floté brutte.heic",
       "apres": "/photos/lampe bois floté fini.heic",
