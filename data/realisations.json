@@ -1,6 +1,15 @@
 {
   "chantiers": [
     {
+      "titre": "relooking meuble cuisine",
+      "avant": "/photos/meuble cuisine brute.heic",
+      "apres": "/photos/meuble cuisine relooké.heic",
+      "texte": "mise en place d'un sticker effet bois extérieur et intérieur puis montage de nouvelles poignés et peinture sur tout les champs de toutes les faces pour un rendu waouh, sur demande du client, puis mise en place du meuble sur mur dans cellier.",
+      "cat": "interieur",
+      "lieu": "La Seyne sur Mer",
+      "duree": "1 jour"
+    },
+    {
       "titre": "Montage meuble pour chaussures",
       "avant": "/photos/montage meuble a chaussure début.heic",
       "apres": "/photos/montage meuble a chaussure fini.heic",
